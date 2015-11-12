@@ -1,0 +1,32 @@
+/*header and footer*/
+
+div#header {
+    height: 280px;
+    width: 80%;
+    border: 1px solid;
+    background: #FFF;
+    margin: auto;
+
+}
+div#entete-img{
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px solid;
+
+}
+div#logo{
+    height: 150px;
+    width: 160px;
+    border: 1px solid;
+    float: left;
+    position: absolute;
+    top: 50px;
+
+
+}
+div#menu{
+    height: 80px;
+    width: 100%;
+    border: 1px solid;
+}
+

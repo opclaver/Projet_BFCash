@@ -1,0 +1,53 @@
+/*Corps*/
+
+
+/*Index.php*/
+div#corps{
+    width:80%;
+    height: 350px;
+    margin: auto;
+    border: 1px solid;
+}
+div#corps-main{
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+div#corps-right{
+    width: 30%;
+    height: 100%;
+    float: right;
+    border-left: 2px groove;
+}
+
+div#connexion{
+    margin: auto;
+    width: 95%;
+    height: 260px;
+    border-bottom: 1px groove;
+}
+
+div#connexion-title{
+
+    text-align: center;
+    color: #1b609a;
+    width: 100px;
+    height: 20px;
+    margin: auto;
+    border-bottom: 1px solid;
+
+}
+a:hover{
+    font-size: 15px;
+}
+a:link{
+    cursor:  pointer;
+}
+
+/*offers.php*/
+div#offres{
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    border: 1px solid;
+}
