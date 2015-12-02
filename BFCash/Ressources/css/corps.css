@@ -23,12 +23,19 @@ div#corps-right{
 div#connexion{
     margin: auto;
     width: 95%;
-    height: 260px;
+    height: 280px;
     border-bottom: 1px groove;
 }
 
-div#connexion-title{
+div#corps-header{
+    margin: 10px auto;
+    width: 50%;
+    height: 25px;
+    border-bottom: 1px groove;
 
+}
+
+div#connexion-title{
     text-align: center;
     color: #1b609a;
     width: 100px;
@@ -37,12 +44,7 @@ div#connexion-title{
     border-bottom: 1px solid;
 
 }
-a:hover{
-    font-size: 15px;
-}
-a:link{
-    cursor:  pointer;
-}
+
 
 /*offers.php*/
 div#offres{
@@ -50,4 +52,8 @@ div#offres{
     height: 100px;
     margin: auto;
     border: 1px solid;
+}
+
+#erreurConnexion,#msgSessionTimeOut {
+    color: red;
 }
