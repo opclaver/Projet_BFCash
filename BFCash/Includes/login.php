@@ -5,9 +5,9 @@
         </br>
     </div>
     <?php
-    session_start(); echo "Session:".$_SESSION['nomUtilisateur']; if(isset($_SESSION['userExpire'])) {$var= $_SESSION['userExpire']; echo "Test".$var;} ?>
+    if(isset($_SESSION['userExpire'])) {$var= $_SESSION['userExpire']; echo "Test".$var;} ?>
     <span id="msgSessionTimeOut"><?php echo $var ?><br/></span>
-    <form action="connexion2.php" id="connexionForm" class="form-horizontal" method="POST">
+    <form  id="connexionForm" class="form-horizontal" method="POST">
         <div class="form-group">
             <label class="control-label col-sm-3" for="login">&nbsp;&nbsp;Email:</label>
             <div class="col-sm-8">

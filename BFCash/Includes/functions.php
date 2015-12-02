@@ -28,7 +28,7 @@ function datefr2en($mydate){
          $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
          // INFORMATIONS DE CONNEXION
          $host = 'localhost';
-         $dbname = 'dbBfCash';
+         $dbname = 'dbbfcash';
          $user = 'root';
          $password = 'root';
 

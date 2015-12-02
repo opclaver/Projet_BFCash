@@ -5,13 +5,13 @@
  * Date: 13/11/15
  * Time: 16:45
  */
-require("Includes/functions.php");
+require "Includes/db.php";
 
-$pdo=connect_bd();
 if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
-    $req = $pdo->prepare('SELECT * FROM users WHERE emailUser = :login AND passwdUser= :passwd');
+    $req = $cnx->prepare('SELECT * FROM utilisateurs WHERE adresseMailUser = :login AND passwdUser= :passwd');
     $req->execute(['login' => $_POST['login'],'passwd' => $_POST['passwd']]);
     $countUser = $req->rowCount();
+
 
     if($countUser==1){
         // On indique qu'il n'y a aucune erreur
@@ -19,8 +19,6 @@ if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
         while ($data = $req->fetch()){
             $json['nom'] = $data['nomUser'];
             $json['prenom'] = $data['prenomUser'];
-            $json['login'] = $data['emailUser'];
-            $json['motpasse'] = $data['passwdUser'];
 
             //Creation de la session
             session_start();
@@ -29,7 +27,7 @@ if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
             $json['user'] = $_SESSION['nomUtilisateur'];
         }
     }else{
-        $json['error'] = $pdo;
+        $json['error'] = $cnx;
     }
 }
 

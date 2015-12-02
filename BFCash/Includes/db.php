@@ -6,6 +6,6 @@
  * Time: 20:39
  */
 
-$cnx = new PDO('mysql:host=localhost;dbname=dbbfcash', 'root', 'root');
+$cnx = new PDO('mysql:host=localhost;dbname=dbBfCash', 'root', 'root');
 
 ?>
