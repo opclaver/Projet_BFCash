@@ -5,6 +5,9 @@
  * Date: 11/11/15
  * Time: 12:12
  */
+
+/* Inclusion  de fucntion */
+
  ?>
 <!DOCTYPE html>
 
@@ -20,10 +23,18 @@
     <link rel="stylesheet" type="text/css"  href="Ressources/css/corps.css" />
     <link rel="stylesheet" type="text/css"  href="Ressources/css/footer.css" />
 
-
     <script type="text/javascript" src="Ressources/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="Ressources/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="Ressources/bootstrap/js/bootstrap-select.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js" type="text/javascript"></script>
+
+
 
 </head>
 
@@ -54,3 +65,16 @@
 
 </div>
 
+    <?php if(isset($_SESSION['flash'])):?>
+        <?php foreach($_SESSION['flash'] as $type => $message): ?>
+
+            <div class="lert alert-<?=$type; ?>">
+
+                <?= $message; ?>
+
+            </div>
+        <?php endforeach; ?>
+
+        <?php unset($_SESSION['flash']); ?>
+
+    <?php endif; ?>

@@ -51,3 +51,11 @@ div#offres{
     margin: auto;
     border: 1px solid;
 }
+
+/*register.php*/
+div#inscription{
+    width: 80%;
+    margin: auto;
+    border: 1px solid;
+}
+

@@ -15,6 +15,41 @@ require "Includes/header.php";
 <div id="corps">
     <div id="corps-main">
 
+             <?php
+             if(!empty($_SESSION['flash']['danger'])){
+             ?>
+
+                 <div class="alert alert-danger">
+             <?php
+                 echo $_SESSION['flash']['danger'];
+                 $_SESSION['flash']['danger'] ="";
+             ?>
+               </div>
+             <?php }
+             else{
+                 $_SESSION['flash']['danger'] ="";
+             }
+
+            ?>
+
+        <?php
+        if(!empty($_SESSION['flash']['success'])){
+
+            ?>
+
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION['flash']['success'];
+                $_SESSION['flash']['success'] ="";
+                ?>
+            </div>
+        <?php }
+        else{
+            $_SESSION['flash']['success'] ="";
+        }
+
+        ?>
+
     </div>
     <div id="corps-right">
         </p>
