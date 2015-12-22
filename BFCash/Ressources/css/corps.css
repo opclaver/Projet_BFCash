@@ -13,6 +13,11 @@ div#corps-main{
     height: 100%;
     float: left;
 }
+div#corps-header{
+     width: 70%;
+    margin: 20px auto;
+ }
+
 div#corps-right{
     width: 30%;
     height: 100%;
@@ -23,7 +28,7 @@ div#corps-right{
 div#connexion{
     margin: auto;
     width: 95%;
-    height: 260px;
+    height: 300px;
     border-bottom: 1px groove;
 }
 

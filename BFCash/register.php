@@ -9,7 +9,6 @@ require_once "Includes/functions.php";
 require_once "Includes/db.php";
 
 if(!empty($_POST)){
-
     $errors=array();
 
     if(empty($_POST['civilite'])){
@@ -17,16 +16,12 @@ if(!empty($_POST)){
         $errors['civilite']="Veuillez choisir votre civilité";
 
     }
-
     if(empty($_POST['nom'])|| !preg_match('/^[a-zA-Z-9_]+$/',$_POST['nom'])){
 
         $errors['nom']="Veuillez entrer un nom correct";
-
     }
     if(empty($_POST['prenom'])|| !preg_match('/^[a-zA-Z-9_]+$/',$_POST['nom'])){
-
         $errors['prenom']="Veuillez entrer un prenom correct";
-
     }
     if(empty($_POST['dateNaiss'])){
 
@@ -55,9 +50,7 @@ if(!empty($_POST)){
         $errors['pays']="Veuillez entrer un pays correct";
 
     }
-
     if(empty($_POST['telephone'])){
-
         $errors['telephone']="Veuillez entrer un numero de telephone correct";
 
     }else{
@@ -156,7 +149,7 @@ if(!empty($_POST)){
 
                 <ul>
                     <?php foreach($errors as $error): ?>
-                        <li><?= $error; ?></li>
+                        <li>< ?= $error; ?></li>
                     <?php endforeach; ?>
 
                 </ul>
@@ -358,8 +351,6 @@ if(!empty($_POST)){
     </div>
 
 <?php
-
-
 
 /* Inclusion du pied de page */
 require "Includes/footer.php";

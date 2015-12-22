@@ -4,10 +4,8 @@
         <label class="control-label">CONNEXION</label>
         </br>
     </div>
-    <?php
-    if(isset($_SESSION['userExpire'])) {$var= $_SESSION['userExpire']; echo "Test".$var;} ?>
-    <span id="msgSessionTimeOut"><?php echo $var ?><br/></span>
-    <form  id="connexionForm" class="form-horizontal" method="POST">
+    </br>
+    <form  action="#" id="connexionForm" class="form-horizontal" method="POST">
         <div class="form-group">
             <label class="control-label col-sm-3" for="login">&nbsp;&nbsp;Email:</label>
             <div class="col-sm-8">
@@ -25,7 +23,7 @@
                 <a href="password_init_form.php"><label>Mot de passe oublié ?</label></a>
             </div>
         </div>
-        <span id="erreurConnexion"><br/></span>
+        <span id="erreurConnexion"></span>
         <div class="form-group">
             <div class="col-ms-6">
                 <button type="submit" class="btn btn-success center-block" >Connecter</button>

@@ -4,34 +4,45 @@
  * User: pahima
  * Date: 13/11/15
  * Time: 16:45
+ *
+ * Valeur de CodeErreur:
+ *  1: succes
+ *  0: nomuser ou mt passe incorrect
+ *  -1: compte non activé
  */
 require "Includes/db.php";
 
 if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
-    $req = $cnx->prepare('SELECT * FROM utilisateurs WHERE adresseMailUser = :login AND passwdUser= :passwd');
-    $req->execute(['login' => $_POST['login'],'passwd' => $_POST['passwd']]);
-    $countUser = $req->rowCount();
-
-
-    if($countUser==1){
-        // On indique qu'il n'y a aucune erreur
-        $json['error'] = '1';
-        while ($data = $req->fetch()){
-            $json['nom'] = $data['nomUser'];
-            $json['prenom'] = $data['prenomUser'];
+    //$password=password_hash($_POST['passwd'], PASSWORD_BCRYPT);
+    //$password=$_POST['passwd'];
+    $req = $cnx->prepare('SELECT * FROM utilisateurs WHERE adresseMailUser = :login');
+    $req->execute(['login' => $_POST['login'] ]);
+    $user = $req->fetch();
+    //$countUser = $req->rowCount();
+    $json['passwd'] = $user['passwdUser'];
+    if(password_verify($_POST['passwd'], $user['passwdUser'])){
+        if($user['statutCompte']=='1'){
+            // On indique qu'il n'y a aucune erreur
+            $json['error'] = '1';
 
             //Creation de la session
             session_start();
-            $_SESSION['nomUtilisateur'] = $json['nom'].' '.$json['prenom'];
+            $_SESSION['nomUtilisateur'] = $user['nomUser'].' '.$user['prenomUser'];
             $_SESSION['loggedin_time'] = time();
             $json['user'] = $_SESSION['nomUtilisateur'];
+        }else{
+            //Utilisateur non activé
+            $json['error'] = '-1';
         }
+
     }else{
-        $json['error'] = $cnx;
+        //Nom d'utilisateur ou mt passe incorrect
+        $json['error'] = '0';
+
     }
 }
 
-$req->closeCursor();
+
 
 // Encodage de la variable tableau json et affichage
 echo json_encode($json);

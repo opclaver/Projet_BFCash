@@ -29,7 +29,6 @@ session_start();
     <script type="text/javascript" src="Ressources/scripts/connexion.js"></script>
     <script type="text/javascript" src="Ressources/scripts/header.js"></script>
 
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
     <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
 
@@ -43,7 +42,7 @@ session_start();
         var loginTime = '<?php if(isset($_SESSION['loggedin_time'])) echo $_SESSION["loggedin_time"]; ?>';
         var userSession = '<?php if(isset($_SESSION['nomUtilisateur'])) echo $_SESSION["nomUtilisateur"]; ?>';
         function isLoginSessionExpired() {
-            var login_session_duration = 5;
+            var login_session_duration = 30;
             var current_time = '<?php echo time()?>';
             if(loginTime!="" && userSession!=""){
                 if(((current_time - loginTime) > login_session_duration)){
@@ -57,13 +56,7 @@ session_start();
                 $("#connexion").hide();
             }else if(isLoginSessionExpired()){
                 //Redirection vers la page deconnexion
-                <?php
-                    $_SESSION['userExpire']= "Session expirée , reconnecter vous";
-                    ?>
-                //$("#msgSessionTimeOut").html("&nbsp;Session expirée , reconnecter vous");
-                document.location.replace('deconnexion.php');
-
-
+                document.location.replace('deconnexion_automatic.php');
 
             }
         }
