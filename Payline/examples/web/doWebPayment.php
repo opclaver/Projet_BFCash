@@ -31,10 +31,15 @@ $array['secondContracts'] = $secondContracts;
 // EXECUTE
 $response = $payline->doWebPayment($array);
 if(isset($response) && $response['result']['code'] == '00000'){
-  header("location:".$response['redirectURL']);
+ //header("location:".$response['redirectURL']);
+ // echo "<script type='text/javascript'>document.location.replace('http://localhost:8888/Projet_BFCash/BFCash/simuler_frais.php');</script>";
+  $var=$response['redirectURL'];
+ // echo "<script type='text/javascript'>document.location.replace('https://homologation-webpayment.payline.com/webpayment/step2.do?reqCode=prepareStep2&token=2WKhnSbI8FNuUOuuw2561451406571989');</script>";
+  echo "<script type='text/javascript'>document.location.replace('$var');</script>";
+
+
   exit();
 }elseif(isset($response)) {
 	echo 'ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' <BR/>';
 }
-
 ?>

@@ -71,7 +71,7 @@
 					<?php
 					if(isset($_POST['submit'])){ // validation d'un formulaire
 						include('../web/'.$_POST['submit'].'.php');
-					}elseif(isset($_GET['token'])){ // retour à la boutique
+					}elseif(isset($_GET['token'])){ // retour ï¿½ la boutique
              			include('../web/'.$_GET['e'].'.php');
           			}else{
 						?>

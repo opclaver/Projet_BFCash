@@ -8,7 +8,7 @@
 		</div>
 		<div class="row">
 			<label for="amount">Amount</label>
-			<input type="text" name="amount" id="amount" value="33300">
+			<input type="number" name="amount" id="amount" value="33300">
 			<span class="help">(required)</span>
 		</div>
 		<div class="row">

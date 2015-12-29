@@ -38,7 +38,7 @@ window.addEvent('domready', function(){
 	});
 });
 
-//Générateur de clef pour créer des wallet facilement
+//Gï¿½nï¿½rateur de clef pour crï¿½er des wallet facilement
 function passGenerator(){
 	if(document.getElementById('createWalett') || document.getElementById('createWalettW')){
 		var cars="az0erty2ui3op4qs_5df6gh7jk8lm9wxcvbn-";
@@ -48,11 +48,11 @@ function passGenerator(){
 		taille=6;
 
 		for(i=0;i<taille;i++){
-			// Tirage aléatoire d'une valeur entre 1 et wlong
+			// Tirage alï¿½atoire d'une valeur entre 1 et wlong
 			wpos=Math.round(Math.random()*long);
-			// On cumule le caractère dans le mot de passe
+			// On cumule le caractï¿½re dans le mot de passe
 			   wpas+=cars.substring(wpos,wpos+1);
-			// On continue avec le caractère suivant à générer
+			// On continue avec le caractï¿½re suivant ï¿½ gï¿½nï¿½rer
 		}
 
 		document.getElementById('walletId').value = "Wallet_"+wpas ;
@@ -61,7 +61,7 @@ function passGenerator(){
 
 /*
  * Prerempli le contract number dans les formulaire html
- * par le contract number spécifié dans le fichier
+ * par le contract number spï¿½cifiï¿½ dans le fichier
  * option.php
 */
 function fillContractNumber(contractNumberConfig){
