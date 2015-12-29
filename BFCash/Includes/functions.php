@@ -7,7 +7,7 @@
  */
 
 // Fonction pour debugger les erreurs
-    function debug($var){
+   function debug($var){
 
             echo '<pre>' . print_r($var,true) . '</pre>';
         }
@@ -71,4 +71,29 @@ function isLoginSessionExpired() {
         }
     }
     return false;
+}
+
+function calculFrais($mt){
+
+          if ($mt<= 38.50){
+
+              $commision=2.50;
+
+          }
+          elseif ($mt > 38.50 && $mt <= 76.50){
+
+            $commision=3.75;
+
+            }
+
+          elseif ($mt > 76.50 && $mt <= 152.50){
+
+              $commision=6;
+
+          }
+          else {
+              $commision=($mt*2.5)/100;
+          }
+
+    return $commision;
 }
