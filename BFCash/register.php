@@ -1,5 +1,4 @@
 <?php
-session_start();
 $page_title="Page d'inscription";
 $page_description="Page permettant d'inscrire un nouvel utilisateur";
 
@@ -144,20 +143,14 @@ if(!empty($_POST)){
         // Affichage des erreurs
         if(!empty($errors)):?>
             <div class="alert alert-danger">
-
                 <p> Vous n'avez pas bien rempli le formulaire</p>
-
                 <ul>
                     <?php foreach($errors as $error): ?>
-                        <li>< ?= $error; ?></li>
+                        <li><?php echo $error; ?></li>
                     <?php endforeach; ?>
-
                 </ul>
-
             </div>
-
         <?php endif; ?>
-
 
         <h1 align="center">Inscription</h1>
 

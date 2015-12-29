@@ -1,6 +1,6 @@
 /*header and footer*/
 
-div#header {
+div#headers {
     height: 280px;
     width: 80%;
     border: 1px solid;
@@ -16,11 +16,12 @@ div#entete-img{
 }
 div#logo{
     height: 150px;
-    width: 160px;
+    width: 150px;
     border: 1px solid;
     float: left;
     position: absolute;
     top: 50px;
+
 
 
 }

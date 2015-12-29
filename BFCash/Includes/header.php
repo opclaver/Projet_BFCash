@@ -42,7 +42,7 @@ session_start();
         var loginTime = '<?php if(isset($_SESSION['loggedin_time'])) echo $_SESSION["loggedin_time"]; ?>';
         var userSession = '<?php if(isset($_SESSION['nomUtilisateur'])) echo $_SESSION["nomUtilisateur"]; ?>';
         function isLoginSessionExpired() {
-            var login_session_duration = 30;
+            var login_session_duration =1200;
             var current_time = '<?php echo time()?>';
             if(loginTime!="" && userSession!=""){
                 if(((current_time - loginTime) > login_session_duration)){
@@ -60,24 +60,30 @@ session_start();
 
             }
         }
+
+        $(".nav").click(function(){
+            $(".nav").find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
     </script>
 
 </head>
 
 <body onload="chargerHeader()">
-<div id="header">
+<div id="headers">
     <div id="entete-img">
         <div id="logo">
-            <h1><a href="index.php"><span>BFCash</span></a></h1>
+            <a href="index.php"><img src="Ressources/img/logo2.png"></a>
         </div>
     </div>
     <div id="menu">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav" id="navbar-nav-1">
-                        <li><a href="index.php">Accueil <span class="sr-only"></span></a></li>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.php">Accueil</a></li>
                         <li><a href="index.php">A propos</a></li>
                         <li><a href="offers.php">Nos offres</a></li>
                         <li><a href="index.php">Tarifs</a></li>
@@ -87,7 +93,7 @@ session_start();
                             //echo $_SESSION["nomUtilisateur"];
                             if(isset($_SESSION['nomUtilisateur'])) {
                                 $var=$_SESSION["nomUtilisateur"];
-                                print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li> <li class="divider"></li> <li><a href="deconnexion.php">Se déconnecter</a></li> </ul></li>');
+                                print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="deconnexion.php">Se déconnecter</a></li> </ul></li>');
                             }else{
 
                             }
@@ -95,8 +101,8 @@ session_start();
                         ?>
 
                     </ul>
+                </div>
 
-                </div><!-- /.navbar-collapse -->
 
 
             </div><!-- /.container-fluid -->

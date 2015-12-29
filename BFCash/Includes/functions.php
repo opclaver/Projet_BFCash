@@ -63,7 +63,7 @@ function deconecter() {
 }
 //Verifier l'expiration de la session
 function isLoginSessionExpired() {
-    $login_session_duration = 10;
+    $login_session_duration = 60;
     $current_time = time();
     if(isset($_SESSION['loggedin_time']) and isset($_SESSION["nomUtilisateur"])){
         if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){

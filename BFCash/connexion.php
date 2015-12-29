@@ -28,6 +28,7 @@ if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
             //Creation de la session
             session_start();
             $_SESSION['nomUtilisateur'] = $user['nomUser'].' '.$user['prenomUser'];
+            $_SESSION['idUser']=$user['idUser'];
             $_SESSION['loggedin_time'] = time();
             $json['user'] = $_SESSION['nomUtilisateur'];
         }else{

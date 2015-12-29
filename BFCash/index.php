@@ -15,22 +15,22 @@ require "Includes/header.php";
 <div id="corps">
     <div id="corps-main">
 
-             <?php
-             if(!empty($_SESSION['flash']['danger'])){
-             ?>
+         <?php
+         if(!empty($_SESSION['flash']['danger'])){
+         ?>
 
-                 <div class="alert alert-danger">
-             <?php
-                 echo $_SESSION['flash']['danger'];
-                 $_SESSION['flash']['danger'] ="";
-             ?>
-               </div>
-             <?php }
-             else{
-                 $_SESSION['flash']['danger'] ="";
-             }
+             <div class="alert alert-danger">
+         <?php
+             echo $_SESSION['flash']['danger'];
+             $_SESSION['flash']['danger'] ="";
+         ?>
+           </div>
+         <?php }
+         else{
+             $_SESSION['flash']['danger'] ="";
+         }
 
-            ?>
+        ?>
 
         <?php
         if(!empty($_SESSION['flash']['success'])){
@@ -38,6 +38,7 @@ require "Includes/header.php";
             ?>
 
             <div class="alert alert-success">
+                <a href="index.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <?php
                 echo $_SESSION['flash']['success'];
                 $_SESSION['flash']['success'] ="";
