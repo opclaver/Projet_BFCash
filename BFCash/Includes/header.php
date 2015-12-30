@@ -88,7 +88,9 @@ session_start();
                         <li><a href="offers.php">Nos offres</a></li>
                         <li><a href="index.php">Tarifs</a></li>
                         <li><a href="simuler_frais.php">Estimer</a></li>
+                        <li><a href="envoyerArgent.php">Envoyer</a></li>
                         <li><a href="index.php">Contacter-nous</a></li>
+
                         <?php
                             //echo $_SESSION["nomUtilisateur"];
                             if(isset($_SESSION['nomUtilisateur'])) {

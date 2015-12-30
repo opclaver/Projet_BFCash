@@ -42,4 +42,5 @@ if(isset($response) && $response['result']['code'] == '00000'){
 }elseif(isset($response)) {
 	echo 'ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' <BR/>';
 }
+
 ?>
