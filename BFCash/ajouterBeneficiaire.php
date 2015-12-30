@@ -21,7 +21,7 @@ if(!empty($_POST)) {
 
         $errors['nom'] = "Veuillez entrer un nom correct";
     }
-    if (empty($_POST['prenomBenef']) || !preg_match('/^[a-zA-Z-9_]+$/', $_POST['prenomBenef'])) {
+    if (empty($_POST['prenomBenef'])) {
         $errors['prenom'] = "Veuillez entrer un prenom correct";
     }
 
@@ -42,7 +42,7 @@ if(!empty($_POST)) {
             ':prenomBenef' => $_POST['prenomBenef'],
             ':numTelBenef' => $_POST['telBenef'],
             ':AdresseMailBenef' => $_POST['emailBenef'],
-            ':typeBenef' => 'enregistre',
+            ':typeBenef' => '1',
             ':idUser' => $_SESSION['idUser']
         ]);
 

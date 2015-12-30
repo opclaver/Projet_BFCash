@@ -35,17 +35,14 @@ if(!empty($_POST)){
 
         }
 
-if(empty($errors)){
-    $montant=$_POST['montant'];
+        if(empty($errors)){
+            $montant=$_POST['montant'];
 
-    $frais=calculFrais($montant);
+            $frais=calculFrais($montant);
 
-    $montantttc=($frais + $montant);
+            $montantttc=($frais + $montant);
+        }
 }
-
-
-
-      }
 
 ?>
 
