@@ -11,14 +11,14 @@ $payline->notificationURL = NOTIFICATION_URL;
 $array['version'] = WS_VERSION;
 
 // PAYMENT
-$array['payment']['amount'] = $_POST['amount'];
+$array['payment']['amount'] = $_POST['montantTransf'];
 $array['payment']['currency'] = $_POST['currency'];
 $array['payment']['action'] = PAYMENT_ACTION;
 $array['payment']['mode'] = PAYMENT_MODE;
 
 // ORDER
 $array['order']['ref'] = $_POST['ref'];
-$array['order']['amount'] = $_POST['amount'];
+$array['order']['amount'] = $_POST['montantTransf'];
 $array['order']['currency'] = $_POST['currency'];
 
 // CONTRACT NUMBERS

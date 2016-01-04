@@ -9,10 +9,10 @@
 $page_title="Faire transfert";
 $page_description="Page permettant de renseigner les informations sur le paiement";
 
+include "../../include.php";
 /* Inclusion de l'entete */
-require "Includes/header.php";
-require_once "Includes/functions.php";
-require_once "Includes/db.php";
+require "../../../BFCash/Includes/header.php";
+require_once "../../../BFCash/Includes/db.php";
 
 global $montant;
 global $frais;
@@ -169,7 +169,7 @@ if(!empty($_POST)){
         <div class="panel panel-default">
             <h2 align="center">Envoyer de l'argent</h2>
             <div class="panel-body">
-                <form id="transferArgentForm" data-toggle="validator" class="form-horizontal" role="form" action="" method="post">
+                <form id="transferArgentForm" data-toggle="validator" class="form-horizontal" role="form" action="../web/doWebPayment.php" method="post">
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="paysTransf">&nbsp;&nbsp;Pays:</label>
                         <div class="col-sm-6">
@@ -277,7 +277,7 @@ if(!empty($_POST)){
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="montantttcTransf">&nbsp;&nbsp;Montant Total:</label>
                         <div class="col-sm-3">
-                            <b id="montantttcTransfOut" style="color:red"></b>
+                            <b id="montantttcTransfOut" name="montantttcTransfOut" style="color:red"></b>
                         </div>
                     </div>
 
@@ -358,4 +358,4 @@ if(!empty($_POST)){
 
 <?php
 /*Inclusion du pied de page*/
-include("Includes/footer.php");
+include("../../../BFCash/Includes/footer.php");

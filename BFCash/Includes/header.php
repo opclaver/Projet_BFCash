@@ -5,9 +5,9 @@
  * Date: 11/11/15
  * Time: 12:12
  */
-require "Includes/functions.php";
 session_start();
- ?>
+require "functions.php";
+?>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
@@ -16,24 +16,25 @@ session_start();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="description" content="<?php echo $page_description; ?>" />
 
-    <link rel="stylesheet" type="text/css"  href="Ressources/bootstrap/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" type="text/css"  href="Ressources/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css"  href="Ressources/css/header.css" />
-    <link rel="stylesheet" type="text/css"  href="Ressources/css/corps.css" />
-    <link rel="stylesheet" type="text/css"  href="Ressources/css/footer.css" />
+    <link rel="stylesheet" type="text/css"  href="/Projet_BFCash/BFCash/Ressources/bootstrap/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css"  href="/Projet_BFCash/BFCash/Ressources/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css"  href="/Projet_BFCash/BFCash/Ressources/css/header.css" />
+    <link rel="stylesheet" type="text/css"  href="/Projet_BFCash/BFCash/Ressources/css/corps.css" />
+    <link rel="stylesheet" type="text/css"  href="/Projet_BFCash/BFCash/Ressources/css/footer.css" />
 
 
-    <script type="text/javascript" src="Ressources/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="Ressources/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Ressources/bootstrap/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="Ressources/scripts/connexion.js"></script>
-    <script type="text/javascript" src="Ressources/scripts/header.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/bootstrap/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/scripts/connexion.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/scripts/header.js"></script>
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
     <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 
 
@@ -61,11 +62,6 @@ session_start();
             }
         }
 
-        $(".nav").click(function(){
-            $(".nav").find(".active").removeClass("active");
-            $(this).parent().addClass("active");
-        });
-
     </script>
 
 </head>
@@ -74,7 +70,7 @@ session_start();
 <div id="headers">
     <div id="entete-img">
         <div id="logo">
-            <a href="index.php"><img src="Ressources/img/logo2.png"></a>
+            <a href="/Projet_BFCash/BFCash/index.php"><img src="/Projet_BFCash/BFCash/Ressources/img/logo2.png"></a>
         </div>
     </div>
     <div id="menu">
@@ -83,19 +79,19 @@ session_start();
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php">A propos</a></li>
-                        <li><a href="offers.php">Nos offres</a></li>
-                        <li><a href="index.php">Tarifs</a></li>
-                        <li><a href="simuler_frais.php">Estimer</a></li>
-                        <li><a href="envoyerArgent.php">Envoyer</a></li>
-                        <li><a href="index.php">Contacter-nous</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/index.php">Accueil</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/index.php">A propos</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/offers.php">Nos offres</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/index.php">Tarifs</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/simuler_frais.php">Estimer</a></li>
+                        <li><a href="../Payline/examples/web/envoyerArgent.php">Envoyer</a></li>
+                        <li><a href="/Projet_BFCash/BFCash/index.php">Contacter-nous</a></li>
 
                         <?php
                             //echo $_SESSION["nomUtilisateur"];
                             if(isset($_SESSION['nomUtilisateur'])) {
                                 $var=$_SESSION["nomUtilisateur"];
-                                print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="deconnexion.php">Se déconnecter</a></li> </ul></li>');
+                                print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="/Projet_BFCash/BFCash/listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
                             }else{
 
                             }
