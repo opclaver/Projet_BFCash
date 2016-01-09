@@ -2,11 +2,10 @@
 /**
  * Created by IntelliJ IDEA.
  * User: pahima
- * Date: 11/11/15
- * Time: 12:12
+ * Date: 09/01/16
+ * Time: 13:52
  */
 session_start();
-require "functions.php";
 ?>
 <!DOCTYPE html>
 
@@ -26,7 +25,7 @@ require "functions.php";
     <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/bootstrap/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/scripts/connexion.js"></script>
+    <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/scripts/adminAgent.js"></script>
     <script type="text/javascript" src="/Projet_BFCash/BFCash/Ressources/scripts/header.js"></script>
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
@@ -75,21 +74,17 @@ require "functions.php";
 <div id="headers">
     <div id="entete-img">
         <div id="logo">
-            <a href="/Projet_BFCash/BFCash/index.php"><img src="/Projet_BFCash/BFCash/Ressources/img/logo2.png"></a>
+            <a href="/Projet_BFCash/BFCash/admin/agentAccount.php"><img src="/Projet_BFCash/BFCash/Ressources/img/logo2.png"></a>
         </div>
     </div>
     <div id="menu">
         <div class="navbar navbar-default">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav">
-                <li><a href="/Projet_BFCash/BFCash/index.php" style="height: 50px">Accueil</a></li>
-                <li><a href="/Projet_BFCash/BFCash/about.php" style="height: 50px">A propos</a></li>
-                <li><a href="/Projet_BFCash/BFCash/offers.php" style="height: 50px">Nos offres</a></li>
-                <li><a href="/Projet_BFCash/BFCash/tarifs.php" style="height: 50px">Tarifs</a></li>
-                <li><a href="/Projet_BFCash/BFCash/simuler_frais.php" style="height: 50px">Estimer</a></li>
-                <li><a href="/Projet_BFCash/Payline/examples/web/envoyerArgent.php" style="height: 50px">Envoyer</a></li>
-                <li><a href="/Projet_BFCash/BFCash/contact.php" style="height: 50px">Contacter-nous</a></li>
-
+                <li><a href="/Projet_BFCash/BFCash/admin/agentAccount.php" style="height: 50px">Accueil</a></li>
+                <li><a href="/Projet_BFCash/BFCash/admin/transactionencours.php" style="height: 50px">Transactions en cours</a></li>
+                <li><a href="/Projet_BFCash/BFCash/admin/transactionacloturer.php" style="height: 50px">Transactions à cloturer</a></li>
+                <li><a href="/Projet_BFCash/BFCash/admin/recherche.php" style="height: 50px">Recherche</a></li>
                 <?php
                     //echo $_SESSION["nomUtilisateur"];
                     if(isset($_SESSION['nomUtilisateur'])) {

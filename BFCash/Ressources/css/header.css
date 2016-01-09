@@ -1,7 +1,7 @@
 /*header and footer*/
 
 div#headers {
-    height: 280px;
+    height: 260px;
     width: 80%;
     border: 1px solid;
     background: #FFF;
@@ -22,11 +22,9 @@ div#logo{
     position: absolute;
     top: 50px;
 
-
-
 }
 div#menu{
-    height: 80px;
+    height: 60px;
     width: 100%;
     border: 1px solid;
 }

@@ -16,35 +16,7 @@ require "Includes/header.php";
 
 ?>
 <div id="offres">
-    <span>Corps des offres</span>
-    <?php
-    // Affichage
-    $array['token'] = $_GET['token'];
-    if (isset($array['token'])){
-
-
-        $response = $payline->getWebPaymentDetails($array);
-        echo "nous sommes ici";
-        echo $array['token'];
-        echo "nous sommes la ";
-        if(isset($response)){
-
-            echo '<H3>RESPONSE</H3>';
-            print_a($response, 0, true);
-
-        }
-
-        echo "ok ok";
-        echo $response['result']['code'];
-        echo NOTIFICATION_URL;
-
-    }
-    else
-    {
-        echo "token absent";
-        echo NOTIFICATION_URL;
-    }
-    ?>
+    <span>Nos offres</span>
 </div>
 
 <?php
