@@ -84,7 +84,7 @@ require "functions.php";
                         <li><a href="/Projet_BFCash/BFCash/offers.php">Nos offres</a></li>
                         <li><a href="/Projet_BFCash/BFCash/index.php">Tarifs</a></li>
                         <li><a href="/Projet_BFCash/BFCash/simuler_frais.php">Estimer</a></li>
-                        <li><a href="../Payline/examples/web/envoyerArgent.php">Envoyer</a></li>
+                        <li><a href="/Projet_BFCash/Payline/examples/web/envoyerArgent.php">Envoyer</a></li>
                         <li><a href="/Projet_BFCash/BFCash/index.php">Contacter-nous</a></li>
 
                         <?php

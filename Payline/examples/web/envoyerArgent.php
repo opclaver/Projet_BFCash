@@ -288,7 +288,7 @@ if(!empty($_POST)){
                                 <label class="control-label col-sm-3" >&nbsp;&nbsp;Bénéficiaire:</label>
                                 <label class="radio-inline"><input type="radio" name="optradio" id="choixListBenef" checked>
                                     <div class="col-sm-12">
-                                        <select class="form-control" name="beneficaire" id="beneficiaireTransf">
+                                        <select class="form-control" name="beneficiaireTransf" id="beneficiaireTransf">
 
                                             <option value=""> Choisir un bénéficiaire</option>
                                             <?php

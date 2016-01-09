@@ -5,8 +5,11 @@
  * Date: 10/11/15
  * Time: 15:45
  */
+include "../Payline/include.php";
  $page_title="Transfert d'argent vers l'Afrique et services mobiles associés";
  $page_description="Transfert d'argent moins cher vers le Burkina Faso";
+ $array = array();
+ $payline = new paylineSDK(MERCHANT_ID, ACCESS_KEY, PROXY_HOST, PROXY_PORT, PROXY_LOGIN, PROXY_PASSWORD, ENVIRONMENT);
 
 /* Inclusion de l'entete */
 require "Includes/header.php";
@@ -85,7 +88,7 @@ if(!empty($_POST)){
                             <legend align="center">Récapitulatif de l'estimation</legend>
                             <label class="control-label col-sm-3" for="mt">&nbsp;&nbsp;MONTANT SAISI:</label>
                             <div class="col-sm-8">
-                                <output id="mt" color="red"><?php echo $montant; ?> &nbsp;&nbsp; &nbsp;&nbsp;Euros</output>
+                                <output id="mt"><?php echo $montant; ?> &nbsp;&nbsp; &nbsp;&nbsp;Euros</output>
                             </div>
                             <label class="control-label col-sm-3" for="frais">&nbsp;&nbsp;FRAIS:</label>
                             <div class="col-sm-8">
@@ -106,6 +109,42 @@ if(!empty($_POST)){
                 </form>
             </div>
         </div>
+
+        <?php
+        // Affichage
+
+
+        $array['token'] = $_GET['token'];
+
+        if (isset($array['token'])){
+
+
+        $response = $payline->getWebPaymentDetails($array);
+             echo "nous sommes ici";
+        echo $array['token'];
+        echo "nous sommes la ";
+        if(isset($response)){
+
+            echo '<H3>RESPONSE</H3>';
+            print_a($response, 0, true);
+
+        }
+
+        echo "ok ok";
+        echo $response['result']['code'];
+            echo NOTIFICATION_URL;
+
+        }
+        else
+        {
+            echo "token absent";
+            echo NOTIFICATION_URL;
+        }
+        ?>
+
+
+
+
     </div>
     <div id="corps-right">
         </p>
