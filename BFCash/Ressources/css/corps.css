@@ -4,7 +4,7 @@
 /*Index.php*/
 div#corps{
     width:80%;
-    height: 1000px;
+    min-height: 1000px;
     margin: auto;
     border: 1px solid;
 }
@@ -14,13 +14,13 @@ div#corps-main{
     float: left;
 }
 div#corps-header{
-     width: 70%;
+    width: 70%;
     margin: 20px auto;
- }
+}
 
 div#corps-right{
     width: 30%;
-    height: 100%;
+    min-height: 1000px;
     float: right;
     border-left: 2px groove;
 }
