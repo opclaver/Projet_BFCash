@@ -5,7 +5,13 @@
  * Date: 22/11/15
  * Time: 20:03
  */
- session_start();
 require("Includes/functions.php");
-deconecter();
-header('Location:index.php');
+session_start();
+if($_SESSION['typeUser']=="Internaute"){
+ deconecter();
+ echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+}else if($_SESSION['typeUser']=="Agent"){
+ deconecter();
+ echo "<script type='text/javascript'>document.location.replace('../BFCash/admin/index.php');</script>";
+}
+

@@ -59,6 +59,7 @@ function deconecter() {
         $params["httponly"]);
 
     // Détruisez la session
+    session_start();
     session_destroy();
 }
 //Verifier l'expiration de la session

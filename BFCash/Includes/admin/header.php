@@ -5,7 +5,10 @@
  * Date: 09/01/16
  * Time: 13:52
  */
-session_start();
+ if(!isset($_SESSION)){
+     session_start();
+ }
+
 ?>
 <!DOCTYPE html>
 
@@ -42,7 +45,7 @@ session_start();
         var loginTime = '<?php if(isset($_SESSION['loggedin_time'])) echo $_SESSION["loggedin_time"]; ?>';
         var userSession = '<?php if(isset($_SESSION['nomUtilisateur'])) echo $_SESSION["nomUtilisateur"]; ?>';
         function isLoginSessionExpired() {
-            var login_session_duration =1200;
+            var login_session_duration =120;
             var current_time = '<?php echo time()?>';
             if(loginTime!="" && userSession!=""){
                 if(((current_time - loginTime) > login_session_duration)){
@@ -52,12 +55,9 @@ session_start();
             return false;
         }
         function chargerHeader(){
-            if( !isLoginSessionExpired() && userSession!=''){
-                $("#connexion").hide();
-            }else if(isLoginSessionExpired()){
+            if(isLoginSessionExpired()){
                 //Redirection vers la page deconnexion
-                document.location.replace('deconnexion_automatic.php');
-
+                document.location.replace('../../BFCash/admin/deconnexion_automatic.php');
             }
         }
 
@@ -89,7 +89,7 @@ session_start();
                     //echo $_SESSION["nomUtilisateur"];
                     if(isset($_SESSION['nomUtilisateur'])) {
                         $var=$_SESSION["nomUtilisateur"];
-                        print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="/Projet_BFCash/BFCash/listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
+                        print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon profil</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mot de passe oublié</a></li><li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
                     }else{
 
                     }

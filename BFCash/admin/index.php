@@ -29,9 +29,11 @@ if(!empty($_POST)) {
         session_start();
         $_SESSION['nomUtilisateur'] = $user['nomUser'].' '.$user['prenomUser'];
         $_SESSION['idUser']=$user['idUser'];
+        $_SESSION['typeUser']=$user['typeUser'];
         $_SESSION['loggedin_time'] = time();
 
         // On redirige l'utilisateur vers la page d'accueil
+        //header("Location:agentAccount.php");
         echo "<script type='text/javascript'>document.location.replace('agentAccount.php');</script>";
 
         exit();

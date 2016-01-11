@@ -15,8 +15,8 @@ require "Includes/db.php";
 if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
     //$password=password_hash($_POST['passwd'], PASSWORD_BCRYPT);
     //$password=$_POST['passwd'];
-    $req = $cnx->prepare('SELECT * FROM utilisateurs WHERE adresseMailUser = :login');
-    $req->execute(['login' => $_POST['login'] ]);
+    $req = $cnx->prepare('SELECT * FROM utilisateurs WHERE adresseMailUser = :login AND typeUser=:typeUser ');
+    $req->execute(['login' => $_POST['login'],'typeUser'=>'Internaute' ]);
     $user = $req->fetch();
     //$countUser = $req->rowCount();
     $json['passwd'] = $user['passwdUser'];
@@ -29,6 +29,7 @@ if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
             session_start();
             $_SESSION['nomUtilisateur'] = $user['nomUser'].' '.$user['prenomUser'];
             $_SESSION['idUser']=$user['idUser'];
+            $_SESSION['typeUser']=$user['typeUser'];
             $_SESSION['loggedin_time'] = time();
             $json['user'] = $_SESSION['nomUtilisateur'];
         }else{

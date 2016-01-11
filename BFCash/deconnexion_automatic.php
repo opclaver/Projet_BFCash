@@ -8,7 +8,6 @@
 
 require("Includes/functions.php");
 deconecter();
-session_start();
-$_SESSION['userExpire']= "Session expirée , reconnecter vous";
-header('Location:index.php');
+echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+
 ?>

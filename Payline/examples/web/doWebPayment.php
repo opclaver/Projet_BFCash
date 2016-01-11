@@ -12,14 +12,14 @@ $payline->notificationURL = NOTIFICATION_URL;
 $array['version'] = WS_VERSION;
 
 // PAYMENT
-$array['payment']['amount'] = $_POST['montantTransf']*100;
+$array['payment']['amount'] = ($_POST['montantTransf']+calculFrais($_POST['montantTransf']))*100;
 $array['payment']['currency'] ='978';
 $array['payment']['action'] = PAYMENT_ACTION;
 $array['payment']['mode'] = PAYMENT_MODE;
 
 // ORDER
 $array['order']['ref'] = 'PHP-'.time();
-$array['order']['amount'] = $_POST['montantTransf']*100;
+$array['order']['amount'] = ($_POST['montantTransf']+calculFrais($_POST['montantTransf']))*100;
 $array['order']['currency'] ='978';
 
 // CONTRACT NUMBERS
@@ -29,17 +29,10 @@ $array['contracts'] = $contracts;
 $secondContracts = explode(";",SECOND_CONTRACT_NUMBER_LIST);
 $array['secondContracts'] = $secondContracts;
 
-//RECUPERATION INFOS BENEFICIAIRE
+//RECUPERATION INFOS FORMULAIRE
 session_start();
 $_SESSION['id_benef']=$_POST['beneficiaireTransf'];
-
-//RECUPERATION INFOS USER
-//$_SESSION[id_user]=$_POST['montantTransf'];;
-
-//RECUPERATION CANAL
 $_SESSION['canal']=$_POST['canalTransf'];
-
-//RECUPERATION frais
 $_SESSION['frais']=calculFrais($_POST['montantTransf']);
 
 
