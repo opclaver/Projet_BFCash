@@ -43,7 +43,7 @@ require "functions.php";
         var loginTime = '<?php if(isset($_SESSION['loggedin_time'])) echo $_SESSION["loggedin_time"]; ?>';
         var userSession = '<?php if(isset($_SESSION['nomUtilisateur'])) echo $_SESSION["nomUtilisateur"]; ?>';
         function isLoginSessionExpired() {
-            var login_session_duration =120;
+            var login_session_duration =1200;
             var current_time = '<?php echo time()?>';
             if(loginTime!="" && userSession!=""){
                 if(((current_time - loginTime) > login_session_duration)){
