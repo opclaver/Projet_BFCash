@@ -30,6 +30,7 @@ if(!empty($_POST) && !empty($_POST['login']) && !empty($_POST['passwd'])){
             $_SESSION['nomUtilisateur'] = $user['nomUser'].' '.$user['prenomUser'];
             $_SESSION['idUser']=$user['idUser'];
             $_SESSION['typeUser']=$user['typeUser'];
+            $_SESSION['adresseMailUser']=$user['adresseMailUser'];
             $_SESSION['loggedin_time'] = time();
             $json['user'] = $_SESSION['nomUtilisateur'];
         }else{

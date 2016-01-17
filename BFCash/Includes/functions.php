@@ -20,7 +20,7 @@
     }
 
 function datefr2en($mydate){
-    @list($jour,$mois,$annee)=explode('/',$mydate);
+    @list($jour,$mois,$annee)=explode('-',$mydate);
     return @date('Y/m/d');
 }
  function connect_bd(){

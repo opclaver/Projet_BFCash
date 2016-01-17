@@ -34,6 +34,7 @@ session_start();
 $_SESSION['id_benef']=$_POST['beneficiaireTransf'];
 $_SESSION['canal']=$_POST['canalTransf'];
 $_SESSION['frais']=calculFrais($_POST['montantTransf']);
+$_SESSION['ref']=$array['order']['ref'];
 
 
 // EXECUTE
