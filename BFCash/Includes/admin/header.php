@@ -45,7 +45,7 @@
         var loginTime = '<?php if(isset($_SESSION['loggedin_time'])) echo $_SESSION["loggedin_time"]; ?>';
         var userSession = '<?php if(isset($_SESSION['nomUtilisateur'])) echo $_SESSION["nomUtilisateur"]; ?>';
         function isLoginSessionExpired() {
-            var login_session_duration =120;
+            var login_session_duration =1200;
             var current_time = '<?php echo time()?>';
             if(loginTime!="" && userSession!=""){
                 if(((current_time - loginTime) > login_session_duration)){
@@ -84,12 +84,12 @@
                 <li><a href="/Projet_BFCash/BFCash/admin/agentAccount.php" style="height: 50px">Accueil</a></li>
                 <li><a href="/Projet_BFCash/BFCash/admin/transactionencours.php" style="height: 50px">Transactions en cours</a></li>
                 <li><a href="/Projet_BFCash/BFCash/admin/transactionacloturer.php" style="height: 50px">Transactions à cloturer</a></li>
-                <li><a href="/Projet_BFCash/BFCash/admin/recherche.php" style="height: 50px">Recherche</a></li>
+                <li><a href="/Projet_BFCash/BFCash/admin/recherche.php" style="height: 50px">Recherche      </a></li>
                 <?php
                     //echo $_SESSION["nomUtilisateur"];
                     if(isset($_SESSION['nomUtilisateur'])) {
                         $var=$_SESSION["nomUtilisateur"];
-                        print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon profil</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mot de passe oublié</a></li><li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
+                        print('<li style="float: right;" class="dropdown" id="userHeader"><a href="#" class=" glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon profil</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mot de passe oublié</a></li><li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
                     }else{
 
                     }

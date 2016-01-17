@@ -18,7 +18,6 @@ require "Includes/header.php";
          <?php
          if(!empty($_SESSION['flash']['danger'])){
          ?>
-
              <div class="alert alert-danger">
          <?php
              echo $_SESSION['flash']['danger'];

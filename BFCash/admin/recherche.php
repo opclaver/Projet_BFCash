@@ -23,5 +23,5 @@ require "../Includes/admin/header.php";
 
 <?php
 /*Inclusion du pied de page*/
-include("Includes/admin/footer.php");
+include("../Includes/admin/footer.php");
 

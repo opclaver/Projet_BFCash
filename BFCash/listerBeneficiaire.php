@@ -34,14 +34,14 @@ require_once "Includes/db.php";
         }
         ?>
         <h2 align="center">Liste des bénéficiaires</h2>
-        &nbsp;&nbsp;<a href="ajouterBeneficiaire.php" class="btn btn-info" role="button">Ajouter bénéficiaire</a>
+        &nbsp;&nbsp;<a href="ajouterBeneficiaire.php" class="btn btn-primary" role="button">Ajouter bénéficiaire</a>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Nom et Prenom(s)</th>
-                <th>Email</th>
+                <th style="text-align: center">Email</th>
                 <th>Téléphone</th>
-                <th>Action</th>
+                <th style="text-align: center">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -55,7 +55,7 @@ require_once "Includes/db.php";
                         <td><?php echo $beneficiaire['nomBenef'].'  '.$beneficiaire['prenomBenef']?></td>
                         <td><?php echo $beneficiaire['AdresseMailBenef']?></td>
                         <td><?php echo $beneficiaire['numTelBenef']?></td>
-                        <td><a href="modifierBeneficiaire.php?id=<?php echo $idBenef?>">Modifier  </a><a href="supprimerBeneficiaire.php?id=<?php echo $idBenef?>"> Supprimer</a> </td>
+                        <td><a role="button" class="btn btn-primary btn-sm" href="modifierBeneficiaire.php?id=<?php echo $idBenef?>">Modifier</a><a style="float: right;" role="button" class="btn btn-danger btn-sm" href="supprimerBeneficiaire.php?id=<?php echo $idBenef?>"> Supprimer</a> </td>
                     </tr>
                 <?php endwhile; ?>
 

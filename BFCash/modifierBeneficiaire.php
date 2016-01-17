@@ -40,12 +40,13 @@ if(!empty($_POST)) {
 
     if (empty($errors)) {
         // On modifie les informations dans la base de données
-        $req = $cnx->prepare("UPDATE beneficiaire set nomBenef=:nomBenef,prenomBenef=:prenomBenef,numTelBenef=:numTelBenef,AdresseMailBenef=:AdresseMailBenef");
+        $req = $cnx->prepare("UPDATE beneficiaire set nomBenef=:nomBenef,prenomBenef=:prenomBenef,numTelBenef=:numTelBenef,AdresseMailBenef=:AdresseMailBenef where idBenef=:idBenef");
         $req->execute([
             ':nomBenef' => $_POST['nomBenef'],
             ':prenomBenef' => $_POST['prenomBenef'],
             ':numTelBenef' => $_POST['telBenef'],
             ':AdresseMailBenef' => $_POST['emailBenef'],
+            ':idBenef' => $idBenef,
         ]);
 
         // Insertion de la modification du beneficiaire dans l'historique

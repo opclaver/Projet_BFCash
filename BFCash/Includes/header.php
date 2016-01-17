@@ -94,7 +94,7 @@ require "functions.php";
                     //echo $_SESSION["nomUtilisateur"];
                     if(isset($_SESSION['nomUtilisateur'])) {
                         $var=$_SESSION["nomUtilisateur"];
-                        print('<li class="dropdown" id="userHeader"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="/Projet_BFCash/BFCash/listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
+                        print('<li class="dropdown" id="userHeader"><a href="#" class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown" style="height: 50px"> ' ."$var".'<b class="caret"></b></a> <ul class="dropdown-menu"> <li><a href="#">Mon compte</a></li> <li><a href="#">Mes info</a></li> <li><a href="#">Mes transactions</a></li><li><a href="/Projet_BFCash/BFCash/listerBeneficiaire.php">Mes beneficiares</a></li> <li class="divider"></li> <li><a href="/Projet_BFCash/BFCash/deconnexion.php">Se déconnecter</a></li> </ul></li>');
                     }else{
 
                     }
