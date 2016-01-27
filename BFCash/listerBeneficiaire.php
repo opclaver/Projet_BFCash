@@ -53,7 +53,7 @@ require_once "Includes/db.php";
                     $idBenef=$beneficiaire['idBenef'];?>
                     <tr>
                         <td><?php echo $beneficiaire['nomBenef'].'  '.$beneficiaire['prenomBenef']?></td>
-                        <td><?php echo $beneficiaire['AdresseMailBenef']?></td>
+                        <td><?php echo $beneficiaire['adresseMailBenef']?></td>
                         <td><?php echo $beneficiaire['numTelBenef']?></td>
                         <td><a role="button" class="btn btn-primary btn-sm" href="modifierBeneficiaire.php?id=<?php echo $idBenef?>">Modifier</a><a style="float: right;" role="button" class="btn btn-danger btn-sm" href="supprimerBeneficiaire.php?id=<?php echo $idBenef?>"> Supprimer</a> </td>
                     </tr>

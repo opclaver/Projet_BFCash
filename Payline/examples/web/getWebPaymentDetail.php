@@ -141,10 +141,6 @@ if ($response['result']['code']== 00000){ ?>
             $montantTrans=($response['payment']['amount']/100) - $_SESSION['frais'];
             $nomUser= $expediteur['nomUser'];
     if(!empty($_SESSION['nomBenef']) && !empty($_SESSION['prenomBenef']) && !empty ($_SESSION['telBenef'])){
-        echo " je suis dans le if";
-        echo  $_SESSION['nomBenef'];
-        echo  $_SESSION['prenomBenef'];
-        echo $_SESSION['telBenef'];
         $req = $cnx->prepare("INSERT INTO beneficiaire (nomBenef,prenomBenef,numTelBenef,adresseMailBenef,typeBenef,idUser) values (:nomBenef,:prenomBenef,:numTelBenef,:adresseMailBenef,:typeBenef,:idUser)");
         $req->execute([
             ':nomBenef' =>$_SESSION['nomBenef'],
@@ -169,7 +165,6 @@ if ($response['result']['code']== 00000){ ?>
             ':idUser' => $_SESSION['idUser'],
             ':idCanal' => 1//$_SESSION['canal']
         ]);
-        echo'fini linsertion';
         // on envoi un mail de confirmation à l'expéditeur et/ou au bénéficiaire
         mail($_SESSION['adresseMailUser'], 'Transaction effectuée avec succès', "Bonjour monsieur $nomUser ,Nous avons le plaisir de vous informer que votre transaction a été validée avec succès.Merci pour votre aimable clientèle ");
         //suppression de la variable session

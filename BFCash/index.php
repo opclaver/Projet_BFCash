@@ -67,20 +67,19 @@ require "Includes/header.php";
         <div class="col-lg-4">
             <img class="img-circle" src="/Projet_BFCash/BFCash/Ressources/img/icon-rapid.png" alt="icone2" width="140" height="140">
             <h2>Rapide</h2>
-            <p>Envoi en quelques minutes</p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            <p>Envoi en quelques minutes votre argent vers l'Afrique.</br>Vous voulez rester en contact avec vos proches , plus d'inquiétudes.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="img-circle" src="/Projet_BFCash/BFCash/Ressources/img/icon-securise.png" alt="icone2" width="140" height="140">
             <h2>Sécurisé</h2>
-            <p>Processus de paiement sécurisé</p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            <p>Processus de paiement sécurisé</br>Nous vous assurons toute la sécurité dans vos transferts </p>
+
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="img-circle" src="/Projet_BFCash/BFCash/Ressources/img/icon-cout2.png" alt="icone3" width="140" height="140">
             <h2>Moins cher</h2>
-            <p>Frais d'envoi à faible cout</p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            <p>Frais d'envoi à faible cout </br>Nous avons pensé à vous et reduisons considérablement vos frais d'envoie</p>
+
         </div><!-- /.col-lg-4 -->
     </div>
     <div id="corps-right">
