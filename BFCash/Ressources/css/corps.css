@@ -4,7 +4,7 @@
 /*Index.php*/
 div#corps{
     width:80%;
-    min-height: 1000px;
+    min-height: 800px;
     margin: auto;
     border: 1px solid;
 }
@@ -20,7 +20,7 @@ div#corps-header{
 
 div#corps-right{
     width: 30%;
-    min-height: 1000px;
+    min-height: 800px;
     float: right;
     border-left: 2px groove;
 }

@@ -14,13 +14,13 @@ $payline = new paylineSDK(MERCHANT_ID, ACCESS_KEY, PROXY_HOST, PROXY_PORT, PROXY
 /* Inclusion de l'entete */
 require "../../../BFCash/Includes/header.php";
 require_once "../../../BFCash/Includes/db.php";
-global $token;
+require_once "../../../BFCash/Includes/functions.php";
 ?>
     <div id="corps">
 
     <div id="corps-main">
         <?php
-        //taux d'échange
+        //taux d'échange 8000250000000004
         $taux=655.99986544;
         // Affichage
         if(isset($_GET['token'])) {
@@ -104,17 +104,32 @@ if ($response['result']['code']== 00000){ ?>
                                           <div class="form-horizontal">
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <output id="nombeneficiaire"><?php echo $beneficiaire['nomBenef'];echo "&nbsp;&nbsp;";echo $beneficiaire['prenomBenef'];?></output>
+                                                    <output id="nombeneficiaire"><?php
+                                                        if (empty($beneficiaire['nomBenef'])){
+                                                            echo $_SESSION['nomBenef'];echo "&nbsp;&nbsp;";echo $_SESSION['prenomBenef'];
+                                                        }else {
+                                                            echo $beneficiaire['nomBenef'];echo "&nbsp;&nbsp;";echo $beneficiaire['prenomBenef'];
+                                                        }?></output>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <output id="numerotelbeneficiaire"><?php echo $beneficiaire['numTelBenef'];?></output>
+                                                    <output id="numerotelbeneficiaire"><?php
+                                                        if (empty($beneficiaire['numTelBenef'])){
+                                                            echo $_SESSION['telBenef'];
+                                                        }else {
+                                                            echo $beneficiaire['numTelBenef'];
+                                                        }?></output>
                                                 </div>
                                             </div>
                                               <div class="form-group">
                                                   <div class="col-sm-12">
-                                                      <output id="mailbeneficiaire"><?php echo $beneficiaire['AdresseMailBenef'];?></output>
+                                                      <output id="mailbeneficiaire"><?php
+                                                          if (empty($beneficiaire['AdresseMailBenef'])){
+                                                              echo $_SESSION['mailBenef'];
+                                                          }else {
+                                                              echo $beneficiaire['AdresseMailBenef'];
+                                                          }?></output>
                                                   </div>
                                               </div>
                                         </div>
@@ -125,29 +140,64 @@ if ($response['result']['code']== 00000){ ?>
             $montantTransXOF=(($response['payment']['amount']/100) - $_SESSION['frais'])* $taux;
             $montantTrans=($response['payment']['amount']/100) - $_SESSION['frais'];
             $nomUser= $expediteur['nomUser'];
-            $req = $cnx->prepare("INSERT INTO transactions (refTrans,dateExp,dateTraitmt,dateCloture,etatTrans,montantTrans,montantTransXOF,fraisTrans,idBenef,idUser,idCanal) values (:refTrans,:dateExp,:dateTraitmt,:dateCloture,:etatTrans,:montantTrans,:montantTransXOF,:fraisTrans,:idBenef,:idUser,:idCanal)");
-            $req->execute([
-                ':refTrans' =>$_SESSION['ref'],
-                ':dateExp' =>datefr2en($response['transaction']['date']),
-                ':dateTraitmt' => null,
-                ':dateCloture' => null,
-                ':etatTrans' => $etatTrans,
-                ':montantTrans' => $montantTrans,
-                ':montantTransXOF' => $montantTransXOF,
-                ':fraisTrans' => $_SESSION['frais'],
-                ':idBenef' => $_SESSION['id_benef'],
-                ':idUser' => $_SESSION['idUser'],
-                ':idCanal' => 1//$_SESSION['canal']
-           ]);
-    // on envoi un mail de confirmation à l'expéditeur et/ou au bénéficiaire
-    mail($_SESSION['adresseMailUser'], 'Transaction effectuée avec succès', "Bonjour monsieur $nomUser ,Nous avons le plaisir de vous informer que votre transaction a été validée avec succès.Merci pour votre aimable clientèle ");
-    //suppression de la variable session
-    unset($_SESSION['frais']);
-    unset($_SESSION['id_benef']);
-    unset($_SESSION['ref']);
-    unset($_SESSION['canal']);
+    if(!empty($_SESSION['nomBenef']) && !empty($_SESSION['prenomBenef']) && !empty ($_SESSION['telBenef'])){
+        echo " je suis dans le if";
+        echo  $_SESSION['nomBenef'];
+        echo  $_SESSION['prenomBenef'];
+        echo $_SESSION['telBenef'];
+        $req = $cnx->prepare("INSERT INTO beneficiaire (nomBenef,prenomBenef,numTelBenef,adresseMailBenef,typeBenef,idUser) values (:nomBenef,:prenomBenef,:numTelBenef,:adresseMailBenef,:typeBenef,:idUser)");
+        $req->execute([
+            ':nomBenef' =>$_SESSION['nomBenef'],
+            ':prenomBenef' =>$_SESSION['prenomBenef'],
+            ':numTelBenef' => $_SESSION['telBenef'],
+            ':adresseMailBenef' => $_SESSION['mailBenef'],
+            ':typeBenef' => $_SESSION['typeBenef'],
+            ':idUser' => $_SESSION['idUser']
+        ]);
+        $lastIdBenef = $cnx->lastInsertId();
+        $req = $cnx->prepare("INSERT INTO transactions (refTrans,dateExp,dateTraitmt,dateCloture,etatTrans,montantTrans,montantTransXOF,fraisTrans,idBenef,idUser,idCanal) values (:refTrans,:dateExp,:dateTraitmt,:dateCloture,:etatTrans,:montantTrans,:montantTransXOF,:fraisTrans,:idBenef,:idUser,:idCanal)");
+        $req->execute([
+            ':refTrans' =>$_SESSION['ref'],
+            ':dateExp' =>datefr2en($response['transaction']['date']),
+            ':dateTraitmt' => null,
+            ':dateCloture' => null,
+            ':etatTrans' => $etatTrans,
+            ':montantTrans' => $montantTrans,
+            ':montantTransXOF' => $montantTransXOF,
+            ':fraisTrans' => $_SESSION['frais'],
+            ':idBenef' => $lastIdBenef,
+            ':idUser' => $_SESSION['idUser'],
+            ':idCanal' => 1//$_SESSION['canal']
+        ]);
+        echo'fini linsertion';
+        // on envoi un mail de confirmation à l'expéditeur et/ou au bénéficiaire
+        mail($_SESSION['adresseMailUser'], 'Transaction effectuée avec succès', "Bonjour monsieur $nomUser ,Nous avons le plaisir de vous informer que votre transaction a été validée avec succès.Merci pour votre aimable clientèle ");
+        //suppression de la variable session
+         deleteSessionVars();
+    }
+    else {
+        $req = $cnx->prepare("INSERT INTO transactions (refTrans,dateExp,dateTraitmt,dateCloture,etatTrans,montantTrans,montantTransXOF,fraisTrans,idBenef,idUser,idCanal) values (:refTrans,:dateExp,:dateTraitmt,:dateCloture,:etatTrans,:montantTrans,:montantTransXOF,:fraisTrans,:idBenef,:idUser,:idCanal)");
+        $req->execute([
+            ':refTrans' =>$_SESSION['ref'],
+            ':dateExp' =>datefr2en($response['transaction']['date']),
+            ':dateTraitmt' => null,
+            ':dateCloture' => null,
+            ':etatTrans' => $etatTrans,
+            ':montantTrans' => $montantTrans,
+            ':montantTransXOF' => $montantTransXOF,
+            ':fraisTrans' => $_SESSION['frais'],
+            ':idBenef' => $_SESSION['id_benef'],
+            ':idUser' => $_SESSION['idUser'],
+            ':idCanal' => 1//$_SESSION['canal']
+        ]);
+        // on envoi un mail de confirmation à l'expéditeur et/ou au bénéficiaire
+        mail($_SESSION['adresseMailUser'], 'Transaction effectuée avec succès', "Bonjour monsieur $nomUser ,Nous avons le plaisir de vous informer que votre transaction a été validée avec succès.Merci pour votre aimable clientèle ");
+        //suppression de la variable session
+        deleteSessionVars();
+    }
+
 }
-        else{ ?>
+else{ ?>
             <div class="alert alert-danger">
                         <H5 align="center"> <?php
                            // echo $response['result']['code'];

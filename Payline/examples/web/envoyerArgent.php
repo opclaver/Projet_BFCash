@@ -114,7 +114,7 @@ if(!empty($_POST)){
             rules: {
                 canalTransf: "required",
                 montantTransf: "required",
-                beneficiaireTransf: "required",
+               // beneficiaireTransf: "required",
                 nomBenef: "required",
                 prenomBenef: "required",
                 telBenef: "required"
@@ -124,7 +124,7 @@ if(!empty($_POST)){
             messages: {
                 canalTransf: "Veuillez preciser le canal d'envoi",
                 montantTransf: "Veuillez entrer le montant du transfert",
-                beneficiaireTransf: "Veuillez selectionner le bénéficiaire",
+               // beneficiaireTransf: "Veuillez selectionner le bénéficiaire",
                 nomBenef: "Veuillez entrer le nom du bénéficiaire",
                 prenomBenef: "Veuillez entrer le prénom du bénéficiaire",
                 telBenef: "Veuillez entrer le téléphone du bénéficiaire"
@@ -334,7 +334,7 @@ if(!empty($_POST)){
                                         </div>
                                     </div>
                                     <div class="form-group" style="margin-left:90px">
-                                        <label class="checkbox-inline"><input type="checkbox" value="">Ajouter ce bénéficiaire au repertoire</label>
+                                        <label class="checkbox-inline"><input type="checkbox" name="typeBenef" value="true">Ajouter ce bénéficiaire au repertoire</label>
                                     </div>
                                 </div>
                             </div>

@@ -2,8 +2,9 @@
 
 div#footer{
     width: 80%;
-    height: 80px;
+    height: 180px;
     margin: auto;
     border: 1px solid;
     float: none;
+    background-color: #E9F3F2;
 }

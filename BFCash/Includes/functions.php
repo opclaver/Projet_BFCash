@@ -98,3 +98,18 @@ function calculFrais($mt){
 
     return $commision;
 }
+function deleteSessionVars(){
+
+    unset($_SESSION['frais']);
+    unset($_SESSION['id_benef']);
+    unset($_SESSION['ref']);
+    unset($_SESSION['canal']);
+    unset($_SESSION['nomBenef']);
+    unset($_SESSION['prenomBenef']);
+    unset($_SESSION['telBenef']);
+    unset($_SESSION['mailBenef']);
+    unset($_SESSION['typeBenef']);
+    unset($_SESSION['idUser']);
+
+    return null;
+}

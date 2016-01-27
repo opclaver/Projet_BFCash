@@ -3,6 +3,7 @@
 require_once("../../include.php");
 require_once "../../../BFCash/Includes/functions.php";
 $array = array();
+global $typeBenef;
 $payline = new paylineSDK(MERCHANT_ID, ACCESS_KEY, PROXY_HOST, PROXY_PORT, PROXY_LOGIN, PROXY_PASSWORD, ENVIRONMENT);
 $payline->returnURL = RETURN_URL;
 $payline->cancelURL = CANCEL_URL;
@@ -35,7 +36,26 @@ $_SESSION['id_benef']=$_POST['beneficiaireTransf'];
 $_SESSION['canal']=$_POST['canalTransf'];
 $_SESSION['frais']=calculFrais($_POST['montantTransf']);
 $_SESSION['ref']=$array['order']['ref'];
+$_SESSION['mailBenef']=$_POST['mailBenef'];
 
+if(!empty($_POST['typeBenef'])){
+    $_SESSION['typeBenef']=true;
+  }else{
+    $_SESSION['typeBenef']=false;
+  }
+
+if(!empty($_POST['nomBenef'])){
+  $_SESSION['nomBenef']=$_POST['nomBenef'];
+}
+if(!empty($_POST['prenomBenef'])){
+  $_SESSION['prenomBenef']=$_POST['prenomBenef'];
+}
+if(!empty($_POST['telBenef'])){
+  $_SESSION['telBenef']=$_POST['telBenef'];
+}
+if(!empty($_POST['typeBenef'])){
+  $_SESSION['typeBenef']=$_POST['typeBenef'];
+}
 
 // EXECUTE
 $response = $payline->doWebPayment($array);
