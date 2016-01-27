@@ -57,7 +57,7 @@ if(!empty($_POST)){
         }else if (mt > 38.50 && mt <= 76.50){
             commision=3.75;
         }
-        else if (mt > 76.50 && mt <= 152.50){
+        else if (mt > 76.50 && mt <= 1000){
             commision=6;
         }
         else{

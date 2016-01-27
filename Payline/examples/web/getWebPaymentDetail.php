@@ -165,6 +165,7 @@ if ($response['result']['code']== 00000){ ?>
             ':idUser' => $_SESSION['idUser'],
             ':idCanal' => 1//$_SESSION['canal']
         ]);
+        echo'fini linsertion';
         // on envoi un mail de confirmation à l'expéditeur et/ou au bénéficiaire
         mail($_SESSION['adresseMailUser'], 'Transaction effectuée avec succès', "Bonjour monsieur $nomUser ,Nous avons le plaisir de vous informer que votre transaction a été validée avec succès.Merci pour votre aimable clientèle ");
         //suppression de la variable session

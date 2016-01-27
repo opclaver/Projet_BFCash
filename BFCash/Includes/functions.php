@@ -87,7 +87,7 @@ function calculFrais($mt){
 
             }
 
-          elseif ($mt > 76.50 && $mt <= 152.50){
+          elseif ($mt > 76.50 && $mt <= 1000){
 
               $commision=6;
 
@@ -109,7 +109,6 @@ function deleteSessionVars(){
     unset($_SESSION['telBenef']);
     unset($_SESSION['mailBenef']);
     unset($_SESSION['typeBenef']);
-    unset($_SESSION['idUser']);
 
     return null;
 }
